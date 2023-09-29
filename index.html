@@ -7,31 +7,114 @@
 
     <style>
         body{
-            background-color: azure;
+            background-color: #272727;
         }
+                            /*a:link - a normal, unvisited link
+                            a:visited - a link the user has visited
+                            a:hover - a link when the user mouses over it
+                            a:active - a link the moment it is clicked
+                            Example
+                            When setting the style for several link states, there are some order rules:
+                            a:hover MUST come after a:link and a:visited
+                            a:active MUST come after a:hover*/
+        a:link{
+            color: #021f07;
+        }
+        a:visited{
+            color: #fc2ebe;
+        }
+        a:hover{
+            color: hsl(246, 83%, 72%);
+            
+        }
+        a:active{
+            color: #f77373;
+        }
+    .slider-container {
+width: max-content;
+overflow: hidden;
+position: relative;
+}
+  .slides {
+    display: flex;
+    transition: transform 0.3s ease-in-out;
+  }
 
+  .slide {
+    min-width: 100%;
+    box-sizing: border-box;
+  }
+
+  img {
+    width: auto;
+    height: auto;
+  }
+
+  .prev, .next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    width: auto;
+    padding: 16px;
+    margin-top: -22px;
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
+    transition: 0.6s ease;
+    border-radius: 0 3px 3px 0;
+    background-color: rgba(0,0,0,0.5);
+  }
+
+  .next {
+    right: 0;
+    border-radius: 3px 0 0 3px;
+  }
     </style>
 </head>
 <body>
-    <center> <h1>PADAMPUR</h1>
-             <H3>Explore My City</H3>
-             <hr size="5">
+    <p style="background-image:'pdp.jpg';"></p>
+    <center> 
+             <H1 style="color: #ff652f; letter-spacing: 0.5rem; ">PADAMPUR </H1>
     </center>
-        <table>
-        <tbody>
-                <tr>
-                    <td>Padampur<br>
-                    335041<br>
-                    Coordinates: 29.707557°N 73.6256494°E<br>
-                    About: Padampur is a City and a municipality in Sri Ganganagar District in <br>
-                    the Indian state of Rajasthan. The city was named after Rajkumar Padam <br>
-                    Singh of royal family of Bikaner.</td>
-                    <td><img srcset="https://upload.wikimedia.org/wikipedia/commons/thumb/3/36/India_Rajasthan_location_map.svg/250px-India_Rajasthan_location_map.svg.png"></td>
-        </tbody>     
-    </table>
-    <hr  size="5">
+    <center>
+        <div class="slider-container">
+            <div class="slides">
+              <div class="slide"><img src="images/hlo people.jpg" alt="Slide 1"></div>
+              <div class="slide"><img src="images/Ad template.jpg" alt="Slide 2"></div>
+              <div class="slide"><img src="images/add ur business.jpg" alt="Slide 3"></div>
+            </div>
+            
+            <div class="prev" onclick="prevSlide()">&#10094;</div>
+            <div class="next" onclick="nextSlide()">&#10095;</div>
+          </div>
+          
+          <script>
+            let slideIndex = 1;
+          
+            function showSlide(index) {
+              const slides = document.querySelectorAll('.slide');
+              if (index > slides.length) { slideIndex = 1; }
+              if (index < 1) { slideIndex = slides.length; }
+              for (let i = 0; i < slides.length; i++) {
+                slides[i].style.display = 'none';
+              }
+              slides[slideIndex - 1].style.display = 'block';
+            }
+          
+            function nextSlide() {
+              showSlide(slideIndex += 1);
+            }
+          
+            function prevSlide() {
+              showSlide(slideIndex -= 1);
+            }
+          
+            showSlide(slideIndex);
+          </script>
+          <hr  size="5">
+          <h2 style="color: #ff652f;">Services</h2>
     <table  cellspacing="10" border="5" width="90%" >
-        <tbody style="background-color: orange;">
+        <tbody style="background-color: #c2e68a;">
             <tr>
                 <td><center><a href="libraries.html">Libraries 📚</a></center></td>
                 <td><center><a href="Institutions.html">Institutions 👨‍🏫</a></center></td>
@@ -62,7 +145,14 @@
         </tbody>
 
     </table>
-    
+</center>
+<hr size="3"> 
+<img src="images/sharma.jpg">
+<img src="images/sewak.jpg">
+<img src="images/yoyo.jpg">
+
+<hr size="3">  
+    <h3 style="color: #f77373;"><a href="contact.html">Contact us</a> </h3> 
     
 </body>
 </html>
